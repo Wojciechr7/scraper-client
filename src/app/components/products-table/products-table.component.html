@@ -23,3 +23,7 @@
     [pageSizeOptions]="[5, 10, 15, 20, 50, 100]">
   </mat-paginator>
 </div>
+
+<h1>poczantek</h1>
+<h1 *ngFor="let product of this.ds.getProducts() | async">{{product.name}}</h1>
+<h1>koniec</h1>

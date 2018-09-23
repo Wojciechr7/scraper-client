@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { ProductsTableDataSource } from './products-table-datasource';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-products-table',
@@ -8,6 +9,7 @@ import { ProductsTableDataSource } from './products-table-datasource';
   styleUrls: ['./products-table.component.scss']
 })
 export class ProductsTableComponent implements OnInit {
+    constructor(public ds: DataService) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: ProductsTableDataSource;
@@ -17,5 +19,7 @@ export class ProductsTableComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource = new ProductsTableDataSource(this.paginator, this.sort);
+
+
   }
 }
