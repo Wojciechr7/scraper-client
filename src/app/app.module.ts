@@ -11,6 +11,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
           appRoutes,
           {enableTracing: false}
       ),
-      HttpClientModule
+      HttpClientModule,
+      DeviceDetectorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

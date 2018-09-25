@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Product} from '../interfaces/product';
 import {Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -18,6 +17,8 @@ export class DataService {
   }
 
     public getProducts(): Observable<Product[]> {
-        return this.http.get<Product[]>(this.url + '/products').pipe(map(res => res));
+        return this.http.get<Product[]>(this.url + '/products');
     }
+
+
 }
