@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild, Input} from '@angular/core';
-import {MatPaginator, MatSort} from '@angular/material';
-import {ProductsTableDataSource} from './products-table-datasource';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {DataService} from '../../services/data.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import {Product} from '../../interfaces/product';
 
 
 @Component({
@@ -13,29 +13,30 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 export class ProductsTableComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
-    dataSource: ProductsTableDataSource;
+
     displayedColumns: Array<string>;
 
-    deviceInfo = null;
-
-
     constructor(public ds: DataService, private deviceService: DeviceDetectorService) {
-        this.displayedColumns = this.deviceService.isMobile() ? ['name', 'price', 'market'] : ['id', 'name', 'price', 'promotion', 'market'];
-
+        this.displayedColumns = this.deviceService.isMobile() ? ['name', 'pln', 'gr', 'shop'] : ['id', 'name', 'pln', 'gr', 'promotion', 'shop'];
     }
-
-
-
-
-    /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-
 
     public hideColumn() {
         this.displayedColumns.pop();
     }
 
-    ngOnInit() {
-        this.dataSource = new ProductsTableDataSource(this.paginator, this.sort);
 
+
+    ngOnInit() {
+        this.ds.getProducts().subscribe((data: Product[]) => {
+                this.ds.dataSource = new MatTableDataSource(data);
+                this.ds.dataSource.sort = this.sort;
+                this.ds.dataSource.paginator = this.paginator;
+            }, err => {
+                throw new err;
+            }
+        );
     }
+
+
+
 }
