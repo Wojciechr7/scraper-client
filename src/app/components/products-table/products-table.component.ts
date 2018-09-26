@@ -20,7 +20,7 @@ export class ProductsTableComponent implements OnInit {
     displayedColumns: Array<string>;
 
     constructor(protected ds: DataService, protected deviceService: DeviceDetectorService) {
-        this.displayedColumns = this.deviceService.isMobile() ? ['select', 'name', 'price', 'shop'] : ['select', 'id', 'name', 'price', 'promotion', 'shop'];
+        this.displayedColumns = this.deviceService.isMobile() ? ['select', 'name', 'price', 'shop'] : ['select', 'id', 'name', 'promotion', 'shop'];
     }
 
     /** Whether the number of selected elements matches the total number of rows. */

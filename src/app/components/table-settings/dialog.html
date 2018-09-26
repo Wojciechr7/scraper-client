@@ -2,6 +2,6 @@
 <div mat-dialog-content>
     Choose columns:
     <ul>
-        <li *ngFor="let item of data"><mat-checkbox></mat-checkbox>{{item}}</li>
+        <li *ngFor="let item of data[0]"><mat-checkbox [checked]="item.active" (change)="toggleColumn(item)"></mat-checkbox>{{item.name}}</li>
     </ul>
 </div>
