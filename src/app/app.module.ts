@@ -12,6 +12,8 @@ import { ProductsTableComponent } from './components/products-table/products-tab
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -47,7 +49,9 @@ const appRoutes: Routes = [
           {enableTracing: false}
       ),
       HttpClientModule,
-      DeviceDetectorModule.forRoot()
+      DeviceDetectorModule.forRoot(),
+      MatCheckboxModule,
+      MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
