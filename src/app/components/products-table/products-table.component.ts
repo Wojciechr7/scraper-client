@@ -19,12 +19,8 @@ export class ProductsTableComponent implements OnInit {
 
     displayedColumns: Array<string>;
 
-    constructor(public ds: DataService, private deviceService: DeviceDetectorService) {
-        this.displayedColumns = this.deviceService.isMobile() ? ['select', 'name', 'pln', 'gr', 'shop'] : ['select', 'id', 'name', 'pln', 'gr', 'promotion', 'shop'];
-    }
-
-    public hideColumn() {
-        this.displayedColumns.pop();
+    constructor(protected ds: DataService, protected deviceService: DeviceDetectorService) {
+        this.displayedColumns = this.deviceService.isMobile() ? ['select', 'name', 'price', 'shop'] : ['select', 'id', 'name', 'price', 'promotion', 'shop'];
     }
 
     /** Whether the number of selected elements matches the total number of rows. */

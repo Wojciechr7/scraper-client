@@ -5,4 +5,5 @@ export interface Product {
     gr: number;
     promotion: string;
     shop: string;
+    price: number;
 }

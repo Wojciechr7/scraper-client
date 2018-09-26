@@ -1,7 +1,20 @@
 .mat-elevation-z8 {
   width: 96%;
-  margin: 20px auto;
+  margin: 30px auto;
+  background-color: #424242;
+  position: relative;
 
+  .filter-icon {
+    margin: 20px;
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all .5s;
+
+    &:hover {
+      color: #c2185b;
+    }
+  }
   table {
     width: 100%;
 
@@ -14,6 +27,17 @@
 
       &:hover .mat-cell {
         color: white;
+      }
+    }
+
+    @media(max-width: 800px) {
+      .mat-cell {
+        font-size: 13px;
+      }
+    }
+    @media(max-width: 650px) {
+      .mat-cell {
+        font-size: 10px;
       }
     }
   }

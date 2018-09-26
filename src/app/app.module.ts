@@ -7,13 +7,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule } from '@angular/material';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {DataDialog, TableSettingsComponent} from './components/table-settings/table-settings.component';
 
 const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -30,7 +31,9 @@ const appRoutes: Routes = [
     NavigationComponent,
     ProductsTableComponent,
     CartComponent,
-    HomeComponent
+    HomeComponent,
+    TableSettingsComponent,
+      DataDialog
   ],
   imports: [
     BrowserModule,
@@ -51,9 +54,11 @@ const appRoutes: Routes = [
       HttpClientModule,
       DeviceDetectorModule.forRoot(),
       MatCheckboxModule,
-      MatProgressSpinnerModule
+      MatProgressSpinnerModule,
+      MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+    entryComponents: [DataDialog]
 })
 export class AppModule { }
