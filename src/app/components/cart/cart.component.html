@@ -1,3 +1,11 @@
-<p>
-  cart works!
-</p>
+
+
+<div id="paper-main" class="paper">
+  <h1 class="title">Your Shopping List</h1>
+  <div  class="paper-content">
+    <ul>
+      <li *ngFor="let product of getStorage()">{{product.name}}, {{product.price}}zł</li>
+    </ul>
+      <h2><u>Total Price:</u>&nbsp;&nbsp;{{calculateTotalPrice()}}zł</h2>
+  </div>
+</div>

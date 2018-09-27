@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from './services/data.service';
-import {Product} from './interfaces/product';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +7,8 @@ import {Product} from './interfaces/product';
 })
 export class AppComponent implements OnInit {
 
-    constructor(private ds: DataService) {}
+    constructor() {}
 
   ngOnInit() {
-      this.ds.getProducts().subscribe((data: Array<Product>) => this.ds.products = data);
   }
 }

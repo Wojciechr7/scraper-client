@@ -1,0 +1,75 @@
+.paper {
+  position: absolute;
+  right: 2%;
+  width: 96%;
+  height: 86%;
+  margin: 2% auto;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  overflow: hidden;
+  z-index: 2;
+  transition: all .2s;
+  display: flex;
+
+  .title {
+    margin: 5px auto;
+    color: black;
+  }
+}
+
+@media(max-width: 700px) {
+  h1.title, h2 {
+    font-size: 20px;
+  }
+  ul {
+    height: 85% !important;
+  }
+}
+@media(max-height: 700px) {
+  h1.title, h2 {
+    font-size: 20px;
+  }
+  ul {
+    height: 85% !important;
+  }
+}
+
+.paper:before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 60px;
+  background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
+  background-size: 30px 30px;
+  border-right: 3px solid #D44147;
+  box-sizing: border-box;
+}
+
+.paper-content {
+  position: absolute;
+  top: 30px; right: 0; bottom: 30px; left: 60px;
+  background: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
+  background-size: 30px 30px;
+  color: black;
+  font-size: 20px;
+
+  ul {
+    padding-top: 10px;
+    height: 90%;
+    overflow: auto;
+
+    li {
+      height: 30px;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+    }
+  }
+
+  h2 {
+    padding-left: 10px;
+  }
+
+
+}

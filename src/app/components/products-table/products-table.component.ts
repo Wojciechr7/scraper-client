@@ -4,7 +4,6 @@ import {DataService} from '../../services/data.service';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {Product} from '../../interfaces/product';
 import {SelectionModel} from '@angular/cdk/collections';
-import * as $ from 'jquery';
 
 
 @Component({
@@ -19,8 +18,8 @@ export class ProductsTableComponent implements OnInit {
 
     displayedColumns: Array<string>;
 
-    constructor(protected ds: DataService, protected deviceService: DeviceDetectorService) {
-        this.displayedColumns = this.deviceService.isMobile() ? ['select', 'name', 'price', 'shop'] : ['select', 'id', 'name', 'promotion', 'shop'];
+    constructor(protected ds: DataService, private deviceService: DeviceDetectorService) {
+        this.displayedColumns = this.deviceService.isMobile() ? ['select', 'name', 'price', 'shop'] : ['select', 'id', 'name', 'price', 'promotion', 'shop'];
     }
 
     /** Whether the number of selected elements matches the total number of rows. */
@@ -32,14 +31,25 @@ export class ProductsTableComponent implements OnInit {
 
     /** Selects all rows if they are not all selected; otherwise clear selection. */
     masterToggle() {
-        this.isAllSelected() ?
-            this.selection.clear() :
+        if (this.isAllSelected()) {
+            this.selection.clear();
+            this.ds.checkedIndexes = [];
+        } else {
             this.ds.dataSource.data.forEach(row => this.selection.select(row));
+        }
+
     }
 
-    public checkSelection(e) {
-        $(e.path[1]).find('td:first label').trigger('click');
+    public checkSelection(e, row) {
+        this.selection.toggle(row);
     }
+
+    public toCart() {
+        localStorage.setItem('cart', JSON.stringify(this.selection.selected));
+        this.selection.clear();
+
+    }
+
 
 
     ngOnInit() {
@@ -47,6 +57,7 @@ export class ProductsTableComponent implements OnInit {
                 this.ds.dataSource = new MatTableDataSource(data);
                 this.ds.dataSource.sort = this.sort;
                 this.ds.dataSource.paginator = this.paginator;
+                this.ds.setFilterPredicate();
             }, err => {
                 throw new err;
             }

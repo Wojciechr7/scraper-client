@@ -1,5 +1,12 @@
-<div class="mat-elevation-z8" [ngClass]="{'hidden': !ds.dataSource.filteredData.length}">
+<div class="mat-elevation-z8" [ngClass]="{'hidden': ds.dataSource.filteredData[0] === 'loading'}">
     <app-table-settings class="filter-icon" [displayedColumns]="displayedColumns"></app-table-settings>
+    <button mat-raised-button color="primary" (click)="ds.addFilter()">New Filter</button>
+    <button mat-raised-button color="warn" (click)="ds.removeFilter()">Remove Filter</button>
+    <br>
+    <mat-form-field *ngFor="let filter of ds.filter.FilterInputs">
+        <input matInput (keyup)="ds.applyFilter($event.target.value, filter.id)"
+               placeholder="Filter by ingredients">
+    </mat-form-field>
     <table mat-table #table [dataSource]="ds.dataSource" matSort aria-label="Elements">
 
         <!-- Checkbox Column -->
@@ -52,7 +59,7 @@
 
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="checkSelection($event)"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="checkSelection($event, row)"></tr>
     </table>
 
     <mat-paginator #paginator
@@ -61,9 +68,10 @@
                    [pageSize]="5"
                    [pageSizeOptions]="[5, 10, 15, 20, 50, 100]">
     </mat-paginator>
+    <button mat-raised-button (click)="toCart()" color="basic">Add Selected Products To Cart&nbsp;&nbsp;<mat-icon>add_shopping_cart</mat-icon></button>
 </div>
 
-<mat-spinner *ngIf="!ds.dataSource.filteredData.length" class="loading-indicator"></mat-spinner>
+<mat-spinner *ngIf="ds.dataSource.filteredData[0] === 'loading'" class="loading-indicator"></mat-spinner>
 
 
 

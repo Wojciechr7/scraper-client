@@ -7,7 +7,19 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule } from '@angular/material';
+import {
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
+} from '@angular/material';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
@@ -15,6 +27,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {DataDialog, TableSettingsComponent} from './components/table-settings/table-settings.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -55,7 +69,11 @@ const appRoutes: Routes = [
       DeviceDetectorModule.forRoot(),
       MatCheckboxModule,
       MatProgressSpinnerModule,
-      MatDialogModule
+      MatDialogModule,
+      MatFormFieldModule,
+      FormsModule,
+      ReactiveFormsModule,
+      MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],
