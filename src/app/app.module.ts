@@ -18,7 +18,8 @@ import {
     MatSortModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
 } from '@angular/material';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'products', component: ProductsTableComponent},
     {path: 'cart', component: CartComponent},
-    {path: '', redirectTo: '/products', pathMatch: 'full'}
+    {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
       MatFormFieldModule,
       FormsModule,
       ReactiveFormsModule,
-      MatInputModule
+      MatInputModule,
+      MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

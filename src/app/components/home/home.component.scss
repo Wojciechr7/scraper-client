@@ -1,0 +1,19 @@
+@import '../../_settings.scss';
+
+mat-card {
+  width: 90%;
+  margin: 30px auto;
+  text-align: center;
+
+  h1 {
+    text-align: center;
+    width: 100%;
+  }
+
+  mat-icon {
+    font-size: 8rem;
+    width: 100%;
+    height: 100%;
+  }
+
+}
