@@ -1,3 +1,5 @@
+@import '../../_settings.scss';
+
 .mat-elevation-z8 {
   width: 96%;
   margin: 30px auto;
@@ -22,7 +24,7 @@
     transition: all .5s;
 
     &:hover {
-      color: #c2185b;
+      color: $primary-color;
     }
   }
   table {
@@ -32,7 +34,7 @@
       cursor: pointer;
 
       &:hover {
-        background-color: #c2185b;
+        background-color: $primary-color;
       }
 
       &:hover .mat-cell {

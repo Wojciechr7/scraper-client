@@ -1,1 +1,13 @@
 $primary-color: #c2185b;
+
+@mixin mobile-sizes() {
+  h1.title, h2 {
+    font-size: 20px;
+  }
+  ul {
+    height: 85% !important;
+  }
+  .paper {
+    margin-top: 10%;
+  }
+}
