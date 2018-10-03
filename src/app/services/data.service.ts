@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {MatTableDataSource} from '@angular/material';
 import { map } from 'rxjs/operators';
 import {Filter} from '../classes/filter';
+import {AppSettings} from '../app.const';
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class DataService {
 
 
   constructor(private http: HttpClient) {
-      this.url = 'https://scrap-api.herokuapp.com';
+      this.url = AppSettings.url;
       this.filter = new Filter();
       this.dataSource = new MatTableDataSource(['loading']);
       this.checkedIndexes = [];

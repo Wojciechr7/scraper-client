@@ -1,0 +1,9 @@
+<h1 *ngIf="data" mat-dialog-title>Loading...</h1>
+<div *ngIf="data" mat-dialog-content>
+    <p>Please Wait {{timeLeft.minutes}} Minutes and {{timeLeft.seconds}} seconds.</p>
+</div>
+
+<h1 *ngIf="!data" mat-dialog-title>Congratulations.</h1>
+<div *ngIf="!data" mat-dialog-content>
+    <p>Database has been updated.</p>
+</div>

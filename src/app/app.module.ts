@@ -23,7 +23,7 @@ import {
 } from '@angular/material';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { CartComponent } from './components/cart/cart.component';
-import { HomeComponent } from './components/home/home.component';
+import {LoadingDialog, HomeComponent } from './components/home/home.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -48,7 +48,8 @@ const appRoutes: Routes = [
     CartComponent,
     HomeComponent,
     TableSettingsComponent,
-      DataDialog
+      DataDialog,
+      LoadingDialog
   ],
   imports: [
     BrowserModule,
@@ -79,6 +80,6 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-    entryComponents: [DataDialog]
+    entryComponents: [DataDialog, LoadingDialog]
 })
 export class AppModule { }

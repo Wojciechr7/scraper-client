@@ -14,6 +14,17 @@ mat-card {
     font-size: 8rem;
     width: 100%;
     height: 100%;
+    cursor: pointer;
   }
 
+  mat-icon.updating {
+    animation: mymove 1s infinite;
+  }
+
+}
+
+
+@keyframes mymove {
+  from {transform: rotate(0);}
+  to {transform: rotate(360deg);}
 }
