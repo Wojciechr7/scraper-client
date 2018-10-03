@@ -18,7 +18,7 @@ export class ProductsTableComponent implements OnInit {
 
     displayedColumns: Array<string>;
 
-    constructor(protected ds: DataService, private deviceService: DeviceDetectorService) {
+    constructor(public ds: DataService, private deviceService: DeviceDetectorService) {
         this.displayedColumns = this.deviceService.isMobile() ? ['select', 'name', 'price', 'shop'] : ['select', 'id', 'name', 'price', 'promotion', 'shop'];
     }
 

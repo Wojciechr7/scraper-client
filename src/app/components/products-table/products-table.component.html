@@ -1,6 +1,6 @@
 <div class="mat-elevation-z8" [ngClass]="{'hidden': ds.dataSource.filteredData[0] === 'loading'}">
-    <app-table-settings class="filter-icon" [displayedColumns]="displayedColumns"></app-table-settings>
-    <button mat-raised-button color="primary" (click)="ds.addFilter()">New Filter</button>
+    <app-table-settings matTooltip="Select Displayed Columns" class="filter-icon" [displayedColumns]="displayedColumns"></app-table-settings>
+    <button mat-raised-button color="primary" (click)="ds.addFilter()" matTooltip="Max 3 Filters">New Filter</button>
     <button mat-raised-button color="warn" (click)="ds.removeFilter()">Remove Filter</button>
     <br>
     <mat-form-field *ngFor="let filter of ds.filter.FilterInputs">
@@ -68,7 +68,7 @@
                    [pageSize]="5"
                    [pageSizeOptions]="[5, 10, 15, 20, 50, 100]">
     </mat-paginator>
-    <button mat-raised-button (click)="toCart()" color="basic">Add Selected Products To Cart&nbsp;&nbsp;<mat-icon>add_shopping_cart</mat-icon></button>
+    <button mat-raised-button (click)="toCart()" matTooltip="It Saves Data In Your Local Storage" color="basic">Add Selected Products To Cart&nbsp;&nbsp;<mat-icon>add_shopping_cart</mat-icon></button>
 </div>
 
 <mat-spinner *ngIf="ds.dataSource.filteredData[0] === 'loading'" class="loading-indicator"></mat-spinner>

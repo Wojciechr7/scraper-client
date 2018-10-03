@@ -19,7 +19,8 @@ import {
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatTooltipModule
 } from '@angular/material';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
       FormsModule,
       ReactiveFormsModule,
       MatInputModule,
-      MatCardModule
+      MatCardModule,
+      MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],

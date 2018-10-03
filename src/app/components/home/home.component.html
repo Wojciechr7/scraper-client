@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card matTooltip="It Can Take 30 - 60 Seconds">
   <mat-card-header>
     <h1>Welcome To Scrapping App</h1>
   </mat-card-header>
@@ -7,6 +7,6 @@
     <mat-icon color="primary" class="refresh-icon" [ngClass]="{'updating': updating}" (click)="updateHandler()">refresh</mat-icon>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="updateHandler()" #updateBtn>Click To Update Database</button>
+    <button mat-button (click)="updateHandler()">Click To Update Database</button>
   </mat-card-actions>
 </mat-card>
